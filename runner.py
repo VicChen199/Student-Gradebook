@@ -21,13 +21,15 @@ def cleanAssignmentDataFrame(dataframe: pd.DataFrame):
         dataframe[assignment] = dataframe[assignment].fillna(0).astype(int)
 
     # Cleans for if a name is missing
-    dataframe["Name"] = dataframe["Name"].fillna("John Doe")
+    dataframe["Name"] = dataframe["Name"].fillna("z Student Missing")
 
     for row in dataframe.index:
 
+        '''
         # If a name is not alphabetical, will replace with "John Doe"
         if not (dataframe.loc[row, "Name"].isalpha()):
             dataframe.loc[row, "Name"] = "John Doe"
+            '''
 
         for assignment in assignmentNames:
 
@@ -125,6 +127,7 @@ for policyName in policyColumns:
 homeworkAndExams = pd.merge(exams, homeworks, on="Name", how="outer")
 master["Name"] = homeworkAndExams["Name"]
 master = pd.merge(master, homeworkAndExams, on="Name", how="left")
+cleanAssignmentDataFrame(master)
 
 # Receives relevant grading policy information
 examWeight = policy.loc[0, "Exam Weight"]
@@ -146,13 +149,14 @@ gradebook["Final Average"] = master["Final Average"]
 gradebook["Exam Average"] = master["Exam Average"]
 gradebook["HW Average"] = master["HW Average"]
 
-# Execution of code, aka testing for now
+# Populates csv files with info from relevant data frames
 policy.to_csv("Grading_Policy.csv", index = False)
 master.to_csv("Master_Gradebook.csv", index = False)
 gradebook.to_csv("General_Gradebook.csv", index = False)
 homeworks.to_csv("Homework_Grades.csv", index = False)
 exams.to_csv("Exam_Grades.csv", index = False)
 
+# Generates pie charts
 generatePassFailPieChart("Final Average", 1)
 generatePassFailPieChart("Exam Average", 2)
 generatePassFailPieChart("HW Average", 3)
