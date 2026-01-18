@@ -4,7 +4,6 @@ TODO: Add graphs using matplotlib for pie charts of:
     pass/fail of HW average 
 '''
 import pandas as pd
-#import os
 import matplotlib.pyplot as plt
 
 # This function cleans data for homeworks and exams
