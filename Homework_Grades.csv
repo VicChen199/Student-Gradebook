@@ -1,4 +1,4 @@
-Name, HW #1, HW #2, HW #3
-Vic,100,50,0
-Jessy,100,100,0
-John Doe,0,100,0
+Name, HW #1, HW #2, HW #3,HW Average
+Vic,100,50,0,50.0
+Jessy,100,100,0,66.5
+John Doe,0,100,0,33.25

@@ -1,1 +1,4 @@
-Name, Final Average, Exam Pass Rate, Homework Pass Rate
+Name,Final Average, Exam #1, Exam #2, Exam #3,Exam Average, HW #1, HW #2, HW #3,HW Average
+Jessy,49.875,100,0,0,33.25,100,100,0,66.5
+John Doe,28.25,0,70,0,23.25,0,100,0,33.25
+Vic,41.625,0,100,0,33.25,100,50,0,50.0
